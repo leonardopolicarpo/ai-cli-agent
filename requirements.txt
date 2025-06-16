@@ -1,0 +1,11 @@
+google-generativeai
+python-dotenv
+pymongo
+google-ai-generativelanguage
+google-api-core
+google-api-python-client
+google-auth
+protobuf
+pydantic
+tqdm
+typing-extensions
