@@ -1,16 +1,15 @@
 from .mongodb import get_collection
 from datetime import datetime
 
-def save_interaction(agent, prompt, response, session_id=None, project=None, discipline=None, tags=None):
+def save_interaction(*, agent, prompt, response, session_id=None, tags=None):
   collection = get_collection()
+
   doc = {
     "agent": agent,
     "prompt": prompt,
     "response": response,
     "timestamp": datetime.now(),
     "session_id": session_id,
-    "project": project,
-    "discipline": discipline,
     "tags": tags or []
   }
 
