@@ -7,13 +7,17 @@ MEMORY_FILE = os.path.join(MEMORY_DIR, "interactions.txt")
 if not os.path.exists(MEMORY_DIR):
   os.makedirs(MEMORY_DIR)
 
-def save_interaction(agent: str, prompt: str, response: str) -> None:
+def save_interaction(agent, prompt, response, session_id=None, project=None, discipline=None, tags=None) -> None:
   with open(MEMORY_FILE, "a", encoding="utf-8") as f:
     f.write(f"=== Interação ===\n")
     f.write(f"Agent: {agent}\n")
     f.write(f"Prompt: {prompt}\n")
     f.write(f"Response: {response}\n")
     f.write(f"Timestamp: {datetime.now()}\n\n")
+    f.write(f"Session_id: {session_id}\n")
+    f.write(f"Project: {project}\n")
+    f.write(f"Discipline: {discipline}\n")
+    f.write(f"Tags: {tags}\n")
 
 def load_memory() -> list[dict]:
   if not os.path.exists(MEMORY_FILE):
@@ -38,6 +42,16 @@ def load_memory() -> list[dict]:
         data["response"] = line[len("Response: "):]
       elif line.startswith("Timestamp: "):
         data["timestamp"] = line[len("Timestamp: "):]
+      elif line.startswith("Session_id: "):
+        data["session_id"] = line[len("Session_id: "):]
+      elif line.startswith("Project: "):
+        data["project"] = line[len("Project: "):]
+      elif line.startswith("Discipline: "):
+        data["discipline"] = line[len("Discipline: "):]
+      elif line.startswith("Tags: "):
+        tags_str = line[len("Tags: "):]
+        data["tags"] = tags_str.strip("[]").split(", ") if tags_str else []
+
     if data:
       interactions.append(data)
   return interactions

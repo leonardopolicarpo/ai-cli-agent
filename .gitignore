@@ -8,3 +8,6 @@ venv/
 .venv/
 
 .vscode/
+
+mongo_data/
+sessions/

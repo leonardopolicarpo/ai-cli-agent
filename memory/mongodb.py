@@ -1,8 +1,12 @@
 from pymongo import MongoClient
 import os
 
-client = MongoClient(os.getenv("MONGO_URI", "mongodb://localhost:27017"))
-db = client["neurohub"]
+MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
+DB_NAME = os.getenv("MONGO_DB_NAME", "ai-cli-agent")
+DEFAULT_COLLECTION = os.getenv("MONGO_COLLECTION_NAME", "interactions")
 
-def get_collection(name: str):
-  return db[name]
+client = MongoClient(MONGO_URI)
+db = client[DB_NAME]
+
+def get_collection(name: str = DEFAULT_COLLECTION):
+    return db[name]

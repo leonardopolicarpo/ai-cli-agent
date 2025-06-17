@@ -1,17 +1,17 @@
 import os
-from .mongodb import get_collection
-from datetime import datetime
-from memory import file_memory as memory
+from memory import file_memory
+from memory import db_memory
 
 USE_MONGO = os.getenv("USE_MONGO", "false").lower() == "true"
 
-def save_interaction(agent, prompt, response):
+def save_interaction(*, agent, prompt, response, session_id=None, project=None, discipline=None, tags=None):
   if USE_MONGO:
-    collection.insert_one({
-      "agent": agent,
-      "prompt": prompt,
-      "response": response,
-      "timestamp": datetime.now()
-    })
+    db_memory.save_interaction(agent, prompt, response, session_id, project, discipline, tags)
   else:
-    memory.save_interaction(agent, prompt, response)
+    file_memory.save_interaction(agent, prompt, response, project, discipline, tags)
+
+def load_context(project=None, session_id=None, limit=5):
+  if USE_MONGO:
+    return db_memory.load_context(project, session_id, limit)
+  else:
+    return file_memory.load_memory()
