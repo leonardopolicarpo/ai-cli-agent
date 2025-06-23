@@ -1,5 +1,5 @@
 from agents.gemini_agent import generate_response_gemini
-from memory import history_manager
+from memory import memory_repository as history_manager
 from utils.context_string import build_prompt_with_context
 
 def run_agent(agent_name: str, prompt: str, session_id: str) -> str:

@@ -33,7 +33,7 @@ def select_session():
   for i, s in enumerate(sessions):
     print(f"{i + 1}. [{s.get('discipline')}] {s.get('project')} - {s.get('session_id')}")
 
-  choice = input("Selecione o número da sessão ou digite 'n' para nova")
+  choice = input("Selecione o número da sessão ou digite 'n' para nova: ")
   if choice.lower() == 'n':
     return create_new_session()
   try:
