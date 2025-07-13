@@ -3,27 +3,6 @@ from core.engine import run_agent
 from audio.tts import speak_text
 from audio.stt import transcribe_audio
 
-# def main():
-#   print("AI CLI Agent (CLI) - Digite 'sair' para encerrar.")
-#   session_id = select_session()
-#   print(f"Usando sessão: {session_id}")
-
-#   tts_enabled = False 
-
-#   while True:
-#     prompt = input("Você: ")
-#     if prompt.lower() in ["sair", "exit", "quit"]:
-#       break
-#     elif prompt.lower() in ["/voz", "/falar"]:
-#       tts_enabled = not tts_enabled
-#       print(f"[TTS {'ativado' if tts_enabled else 'desativado'}]")
-#       continue
-#     response = run_agent("gemini", prompt, session_id)
-#     print(f"Gemini: {response}\n")
-
-#     if tts_enabled:
-#       speak_text(response)
-
 def main():
   print("AI CLI Agent (CLI) - Digite 'sair' para encerrar.")
   session_id = select_session()
