@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 from cli.cli_session import select_session
 from core.engine import run_agent
 from audio.tts import speak_text
@@ -33,8 +36,7 @@ def main():
       print("[📝 Modo texto reativado.]")
       continue
 
-    # response = run_agent("gemini", prompt, session_id)
-    response = "Testando isso aqui"
+    response = run_agent("gemini", prompt, session_id)
 
     if voice_mode:
       speak_text(response)

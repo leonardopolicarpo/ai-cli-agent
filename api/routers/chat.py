@@ -8,16 +8,16 @@ router = APIRouter(prefix="/chat", tags=["Chat"])
 
 @router.post("/", response_model=ChatResponse)
 def handle_chat(request: ChatRequest):
-    agent_result = run_agent(
-        'gemini',
-        request.prompt,
-        request.session_id,
-        request.project_id
-    )
+  agent_result = run_agent(
+    'gemini',
+    request.prompt,
+    request.session_id,
+    request.project_id
+  )
 
-    response = ChatResponse(
-        session_id=request.session_id,
-        ai_response=agent_result
-    )
-    
-    return response
+  response = ChatResponse(
+    session_id=request.session_id,
+    ai_response=agent_result
+  )
+  
+  return response

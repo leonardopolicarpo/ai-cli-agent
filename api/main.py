@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from .routers import chat
 
+from dotenv import load_dotenv
+load_dotenv()
+
 app = FastAPI(
   title="AI CLI Agent",
   description="Um hub central para interagir com diferentes modelos de IA com memória persistente.",
