@@ -9,4 +9,4 @@ class ChatRequest(BaseModel):
 class ChatResponse(BaseModel):
   session_id: str
   ai_response: str
-  tokens_used: int
+  tokens_used: Optional[int] = None
