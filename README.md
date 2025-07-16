@@ -1,86 +1,86 @@
 # 🧠 Core Agent
 
-O **Core Agent** é o cérebro central de agentes inteligentes com memória persistente.
-Projetado para integrar-se a interfaces (como chat web ou assistente por voz), consumir múltiplos modelos LLMs (como o Gemini) e evoluir constantemente com base nas interações.
+**Core Agent** is the central brain for intelligent agents with persistent memory.
+It’s designed to integrate seamlessly with interfaces (such as web chat or voice assistants), interact with multiple LLMs (like Gemini), and continuously evolve based on interactions.
 
-> Este projeto é o coração do seu ecossistema inteligente — a base para construir agentes com personalidade, voz e aprendizado constante.
-
----
-
-## ✨ Visão Geral
-
-O Core Agent permite:
-
-- Conversar com usuários via texto ou voz
-- Armazenar memórias de curto, médio e longo prazo
-- Integrar diferentes LLMs (Gemini, LLaMA, etc.)
-- Coletar dados para treinar agentes personalizados
-- Evoluir com base em interações e construir especialistas
+> This project is the heart of your intelligent ecosystem — a foundation to build agents with memory, voice, personality, and continuous learning.
 
 ---
 
-## 🧠 Funcionalidades
+## ✨ Overview
 
-- 📚 **Memória persistente** com MongoDB
-- 🧩 **Arquitetura modular de agentes** (ex: Gemini)
-- 🔁 **Collector** para treinar agentes a partir de interações
-- 🧠 **Gerador de contexto inteligente**
-- 🧠 **Memória de curto prazo** funcional (ultimas interações)
+Core Agent enables:
+
+- Conversations via text or voice
+- Storage of short, medium, and long-term memory
+- Integration with different LLMs (Gemini, LLaMA, etc.)
+- Data collection to train personalized agents
+- Evolution through interactions and expert agent creation
+
+---
+
+## 🧠 Features
+
+- 📚 **Persistent memory** with MongoDB
+- 🧩 **Modular agent architecture ** (ex: Gemini)
+- 🔁 **Collector** to train agents from interaction data
+- 🧠 **Intelligent context builder**
+- 🧠 **Short-term memory** (recent interactions)
 - 🗣️ **TTS (Text-to-Speech)**
-- 🎤 **STT (Speech-to-Text)** para interações por voz
-- 💻 Interface CLI funcional e legado
-- 🌐 API FastAPI pronta para Web (com documentação automática)
+- 🎤 **STT (Speech-to-Text)** for voice interaction
+- 💻 Functional legacy CLI interface
+- 🌐 FastAPI Web-ready API (with auto documentation)
 
 ---
 
-## ⚒️ Tecnologias
+## ⚒️ Technologies
 
 - **Python 3.11+**
-- **FastAPI** – API REST moderna
-- **MongoDB** – banco de dados para sessões/memórias
-- **Pydantic** – validação de dados
-- **Google Generative AI** – LLM padrão atual (Gemini)
-- **Docker** – para banco de dados local
-- **TTS/STT** – integração com voz
-- **dotenv** – gerenciamento de variáveis
+- **FastAPI** – modern RESTful API
+- **MongoDB** – memory and session database
+- **Pydantic** – data validation
+- **Google Generative AI** – default LLM (Gemini)
+- **Docker** – local database setup
+- **TTS/STT** – voice integration
+- **dotenv** – environment configuration
 
 ---
 
-## 📂 Estrutura do Projeto
+## 📂 Project Structure
 
 ```
 core-agent/
-├── api/                # Rotas FastAPI
-├── agents/             # Agentes (ex: GeminiAgent)
-├── audio/              # TTS/STT
-├── cli/                # CLI legado (ainda funcional)
-├── core/               # Engine principal (ex: run_agent)
-├── memory/             # Repositório, conexão e manipulação com MongoDB
-├── scripts/            # Scripts auxiliares (ex: reset do banco)
-├── utils/              # Helpers para geração de contexto e outros
-├── main.py             # Ponto de entrada da CLI
-├── requirements.txt    # Dependências
-├── docker-compose.yml  # Subir MongoDB com facilidade
-└── .env                # Variáveis de ambiente (.env.example incluso)
+├── api/                # FastAPI routes
+├── agents/             # Agent classes (e.g., GeminiAgent)
+├── audio/              # TTS/STT support
+├── cli/                # Legacy CLI (still functional)
+├── core/               # Main engine (e.g., run_agent)
+├── memory/             # MongoDB repository and session handling
+├── scripts/            # Utility scripts (e.g., database reset)
+├── utils/              # Helpers (e.g., context generation)
+├── main.py             # CLI entry point
+├── requirements.txt    # Project dependencies
+├── docker-compose.yml  # MongoDB container setup
+└── .env                # Environment variables (.env.example included)
 ```
 
 ---
 
-## ⚙️ Como rodar localmente
+## ⚙️ Running Locally
 
-### Requisitos
+### Requirements
 
 - Python 3.11+
-- MongoDB rodando localmente ou via Docker
+- MongoDB running locally or via Docker
 
-### 1. Clone o repositório
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/seu-usuario/core-agent.git
 cd core-agent
 ```
 
-### 2. Crie o ambiente virtual e ative
+### 2. Create and activate a virtual environment
 
 ```bash
 python -m venv .venv
@@ -88,55 +88,55 @@ source .venv/bin/activate  # Linux/macOS
 # .venv\Scripts\activate.bat  # Windows
 ```
 
-### 3. Instale as dependências
+### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Configure as variáveis de ambiente
+### 4. Set up environment variables
 
-Crie um `.env`:
+Create a `.env` file:
 
 ```env
 GEMINI_API_KEY=your_google_generative_ai_key
 MONGO_URI=mongodb://localhost:27017
 ```
 
-### 5. Rode a API
+### 5. Run the API
 
 ```bash
 uvicorn api.main:app --reload
 ```
 
-Acesse a API: [http://localhost:8000/docs](http://localhost:8000/docs)
+Access API documentation at: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ---
 
-## 🐳 Rodar MongoDB com Docker (opcional)
+## 🐳 Run MongoDB with Docker (optional)
 
 ```bash
 docker compose up -d
 ```
 
-Isso subirá o MongoDB localmente na porta `27017`.
+This will launch MongoDB locally on port `27017`.
 
 ---
 
-## 🧠 Sobre o projeto
+## 🧠 About the Project
 
-Este repositório é o coração da arquitetura planejada para múltiplas aplicações com IAs personalizadas.\
-
----
-
-## 📄 Licença
-
-Privado no momento. Avaliando liberação futura como open source.
+This repository is the core foundation for a planned architecture of custom intelligent applications.\
 
 ---
 
-## 👤 Autor
+## 📄 License
 
-Desenvolvido por **Leonardo Policarpo**\
+Private for now. Considering open source release in the future.
+
+---
+
+## 👤 Author
+
+Created by **Leonardo Policarpo**\
 🔗 [linkedin.com/in/leonardopolicarpo](https://linkedin.com/in/leonardopolicarpo)
 
