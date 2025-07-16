@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from schemas.chat import ChatRequest, ChatResponse 
+from api.schemas.chat import ChatRequest, ChatResponse 
 
 from core.engine import run_agent
 

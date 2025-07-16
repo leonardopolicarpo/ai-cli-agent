@@ -1,7 +1,6 @@
 from agents.main import AGENT_REGISTRY
 from memory import memory_repository as history_manager
-from memory_engine.memory_engine import MemoryEngine
-from utils.build_context_prompt import build_context_prompt
+from core.memory_engine.memory_engine import MemoryEngine
 
 def run_agent(agent_name: str, prompt: str, session_id: str, project_id: str) -> str:
   agent = AGENT_REGISTRY.get(agent_name)
