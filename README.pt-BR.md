@@ -1,3 +1,5 @@
+> 🇺🇸 Este README também está disponível em [inglês](README.md).
+
 # 🧠 Core Agent
 
 O **Core Agent** é o cérebro central de agentes inteligentes com memória persistente.

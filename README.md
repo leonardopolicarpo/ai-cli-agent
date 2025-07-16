@@ -1,3 +1,5 @@
+> 🇧🇷 This README is also available in [Portuguese](README.pt-BR.md).
+
 # 🧠 Core Agent
 
 **Core Agent** is the central brain for intelligent agents with persistent memory.
